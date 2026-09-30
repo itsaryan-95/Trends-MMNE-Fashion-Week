@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #111;
+}
+
+.invitation {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+  padding: 70px 45px;
+  border: 1px solid #333;
+
+background-image: url('/invitation-bg.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+  color: #aaa;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(42px, 8vw, 78px);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  font-weight: 300;
+}
+
+.year {
+  margin-top: 18px;
+  font-size: 22px;
+  letter-spacing: 8px;
+  color: #bbb;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin: 55px 0 50px;
+}
+
+.details div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.details strong {
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.details span {
+  font-size: 13px;
+  color: #aaa;
+  letter-spacing: 2px;
+}
+
+.rsvp-form {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.rsvp-form h2 {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 5px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.rsvp-form label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin: 18px 0 8px;
+  color: #bbb;
+}
+
+.rsvp-form input,
+.rsvp-form textarea {
+  width: 100%;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  color: #fff;
+  padding: 14px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  border-color: #aaa;
+}
+
+.rsvp-form textarea {
+  resize: vertical;
+}
+
+.rsvp-form button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 16px;
+  border: none;
+  background: #fff;
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.rsvp-form button:hover {
+  background: #ddd;
+}
+
+.success {
+  padding: 30px 0;
+}
+
+.success h2 {
+  letter-spacing: 4px;
+}
+
+.success p {
+  color: #aaa;
+}
+
+@media (max-width: 600px) {
+  .invitation {
+    padding: 50px 25px;
+  }
+
+  .details {
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+}
+.success {
+  padding: 30px 0;
+}
+
+.success h2 {
+  margin-bottom: 20px;
+}
+
+.success p {
+  margin-bottom: 30px;
+}
+
+.confirmation-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.confirmation-details strong {
+  margin-bottom: 8px;
+}
