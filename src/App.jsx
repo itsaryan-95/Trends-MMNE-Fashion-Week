@@ -43,8 +43,8 @@ function App() {
 
   return (
     <div className="page">
-  <div className="invitation">
-  <div className="eyebrow">YOU ARE INVITED TO</div>
+      <div className="invitation">
+        <div className="eyebrow">YOU ARE INVITED TO</div>
 
 
 <img
