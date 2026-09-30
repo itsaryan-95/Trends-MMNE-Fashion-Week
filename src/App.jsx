@@ -47,16 +47,15 @@ function App() {
         <div className="eyebrow">YOU ARE INVITED TO</div>
 
 
-<div className="tagline">
-  <div>NORTH EAST INDIA’S BIGGEST</div>
-  <div className="tagline-main">YOUTH FASHION MOVEMENT</div>
-</div>
-
 <img
   src="/mmne-logo.png"
   alt="MMNE Fashion Week 2026"
   className="mmne-logo"
 />
+<div className="tagline">
+  <div>NORTH EAST INDIA’S BIGGEST</div>
+  <div className="tagline-main">YOUTH FASHION MOVEMENT</div>
+</div>
 
        <div className="details">
   <div className="venue-block">
