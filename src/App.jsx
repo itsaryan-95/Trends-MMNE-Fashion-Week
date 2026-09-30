@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
 
   const form = e.target;
@@ -12,18 +12,33 @@ function App() {
 
   const data = {
     name: inputs[0].value,
-    companion: inputs[1].value,
-    phone: inputs[2].value,
-    address: inputs[3].value
+    phone: inputs[1].value,
+    city: inputs[2].value
   };
 
-  await fetch("https://script.google.com/macros/s/AKfycbxNio5ux9Z6tZJsixKV3sLtfhnh6aYpSiHMc1ANd8Aj0eSfoxcLXDfj-zBwgs5ZUo83Gw/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(data)
-  });
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxNio5ux9Z6tZJsixKV3sLtfhnh6aYpSiHMc1ANd8Aj0eSfoxcLXDfj-zBwgs5ZUo83Gw/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(data)
+      }
+    );
 
-  setSubmitted(true);
+    const result = await response.json();
+
+    if (result.duplicate) {
+      alert("REGISTRATION ALREADY SUBMITTED\n\nThis phone number has already been registered for Trends MMNE Fashion Week 2026.");
+      return;
+    }
+
+    if (result.success) {
+      setSubmitted(true);
+    }
+  } catch (error) {
+    console.error("RSVP submission failed:", error);
+    alert("Something went wrong. Please try again.");
+  }
 };
 
   return (
@@ -31,41 +46,46 @@ function App() {
       <div className="invitation">
         <div className="eyebrow">YOU ARE INVITED TO</div>
 
-        <h1>
-          Trends MMNE
-          <br />
-          <span>FASHION WEEK</span>
-        </h1>
 
-        <div className="year">2026</div>
+<div className="tagline">
+  <div>NORTH EAST INDIA’S BIGGEST</div>
+  <div className="tagline-main">YOUTH FASHION MOVEMENT</div>
+</div>
 
-        <div className="details">
-          <div>
-            <strong>10 OCTOBER</strong>
-            <span>5 PM ONWARDS</span>
-          </div>
+<img
+  src="/mmne-logo.png"
+  alt="MMNE Fashion Week 2026"
+  className="mmne-logo"
+/>
 
-          <div>
-            <strong>RADISSON BLU</strong>
-            <span>GUWAHATI</span>
-          </div>
-        </div>
+       <div className="details">
+  <div className="venue-block">
+    <strong>VENUE</strong>
+
+    <img
+      src="/radisson-logo.jpg"
+      alt="Radisson Blu"
+      className="radisson-logo"
+    />
+
+  </div>
+
+  <div className="event-time">
+    <strong>10th OCT 2026</strong>
+    <span>|</span>
+    <strong>6 PM ONWARDS</strong>
+  </div>
+</div>
 
         {!submitted ? (
           <form onSubmit={handleSubmit} className="rsvp-form">
-            <h2>RSVP</h2>
+            
 
             <label>YOUR NAME</label>
             <input
               type="text"
               placeholder="Enter Your Name"
               required
-            />
-
-            <label>COMPANION NAME (+1 IF ANY)</label>
-            <input
-              type="text"
-              placeholder="Enter Companion Name (optional)"
             />
 
             <label>PHONE NUMBER</label>
@@ -75,20 +95,26 @@ function App() {
               required
             />
 
-            <label>ADDRESS</label>
+            <label>CITY</label>
             <textarea
-              placeholder="Enter Your Address"
+              placeholder="Enter Your City"
               rows="3"
               required
             />
 
-            <button type="submit">CONFIRM RSVP</button>
+            <button type="submit">SUBMIT</button>
           </form>
         ) : (
           <div className="success">
-          <h2>RSVP CONFIRMED</h2>
+          <h2>WELCOME TO THE SHOW</h2>
 
-  <p>Thank you for confirming your attendance.</p>
+<p>
+  Thank you for joining us at <strong>Trends MMNE Fashion Week 2026</strong>.
+  <br />
+ We look forward to welcoming you to
+<br />
+<strong>Northeast India’s Biggest Youth Fashion Movement</strong>.
+</p>
 
 </div>
         )}
