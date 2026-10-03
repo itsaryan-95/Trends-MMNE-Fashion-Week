@@ -71,6 +71,14 @@ function App() {
           </div>
         </div>
 
+<div className="date-spacer"></div>
+
+<div className="event-time">
+            <strong>10th OCT 2026</strong>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <strong>6 PM ONWARDS</strong>
+          </div>
+          
         <div className="details">
           <div className="venue-block">
             <strong>VENUE</strong>
@@ -80,12 +88,6 @@ function App() {
               alt="Radisson Blu"
               className="radisson-logo"
             />
-          </div>
-
-          <div className="event-time">
-            <strong>10th OCT 2026</strong>
-            <span>|</span>
-            <strong>6 PM ONWARDS</strong>
           </div>
         </div>
 

@@ -24,11 +24,10 @@ body {
   text-align: center;
   padding: 70px 45px;
   border: 1px solid #333;
-
-background-image: url('/invitation-bg.jpg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+  background-image: url('/invitation-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .eyebrow {
@@ -57,33 +56,84 @@ h1 span {
   color: #bbb;
 }
 
+/* MMNE LOGO */
+
+.mmne-logo {
+  width: 85%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+/* TAGLINE */
+
+.tagline {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.tagline-main {
+  font-size: 14.5px;
+  letter-spacing: 1.7px;
+  margin-top: 4px;
+}
+
+/* DATE / TIME */
+
+.event-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  white-space: nowrap;
+  margin: 100px 0 0;
+}
+
+/* DETAILS */
+
 .details {
   display: flex;
-  justify-content: center;
-  gap: 80px;
-  margin: 55px 0 50px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
 }
 
-.details div {
+/* VENUE */
+
+.venue-block {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  margin: 15px 0 0;
+  padding: 0;
 }
 
-.details strong {
-  font-size: 15px;
+.venue-block strong {
+  font-size: 12px;
   letter-spacing: 2px;
+  margin: 0 0 2px 0;
 }
 
-.details span {
-  font-size: 13px;
-  color: #aaa;
-  letter-spacing: 2px;
+/* RADISSON LOGO */
+
+.radisson-logo {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
+
+/* RSVP FORM */
 
 .rsvp-form {
   max-width: 450px;
-  margin: 0 auto;
+  margin: 35px auto 0;
   text-align: left;
 }
 
@@ -141,40 +191,19 @@ h1 span {
   background: #ddd;
 }
 
+/* SUCCESS */
+
 .success {
   padding: 30px 0;
 }
 
 .success h2 {
   letter-spacing: 4px;
-}
-
-.success p {
-  color: #aaa;
-}
-
-@media (max-width: 600px) {
-  .invitation {
-    padding: 50px 25px;
-  }
-
-  .details {
-    gap: 30px;
-  }
-
-  h1 {
-    font-size: 44px;
-  }
-}
-.success {
-  padding: 30px 0;
-}
-
-.success h2 {
   margin-bottom: 20px;
 }
 
 .success p {
+  color: #aaa;
   margin-bottom: 30px;
 }
 
@@ -188,62 +217,31 @@ h1 span {
 .confirmation-details strong {
   margin-bottom: 8px;
 }
-.mmne-logo {
-  width: 85%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: 0 auto 18px;
-}
-.tagline {
-  width: 100%;
-  text-align: center;
-  margin-left: 0;
-  margin-right: 0;
-  box-sizing: border-box;
-}
-.tagline-main {
-  font-size: 14.5px;
-  letter-spacing: 1.7px;
-  margin-top: 4px;
-}
 
+/* MOBILE */
 
-.radisson-logo {
-  width: 140px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
-}
-.radisson-logo {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0px auto;
-}
-.details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
+@media (max-width: 600px) {
+  .invitation {
+    padding: 50px 25px;
+  }
 
-.venue-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .mmne-logo {
+    width: 90%;
+  }
 
-.venue-block strong {
-  font-size: 12px;
-  margin: 0 0 2px 0;
-}
+  .event-time {
+    gap: 8px;
+  }
 
-.details .event-time {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  white-space: nowrap;
+  .radisson-logo {
+    width: 90px;
+  }
+
+  .rsvp-form {
+    margin-top: 30px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
 }
