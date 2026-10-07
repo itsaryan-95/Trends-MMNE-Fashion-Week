@@ -6,51 +6,54 @@ function App() {
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  setError("");
+    setError("");
 
-  const form = e.target;
-  const inputs = form.querySelectorAll("input, textarea");
+    const form = e.target;
+    const inputs = form.querySelectorAll("input, textarea");
 
-  const name = inputs[0].value.trim();
-  const code = inputs[1].value.trim().toUpperCase();
-  const city = inputs[2].value.trim();
+    const name = inputs[0].value.trim();
+    const code = inputs[1].value.trim().toUpperCase();
+    const city = inputs[2].value.trim();
 
-  const url =
-    "https://script.google.com/macros/s/AKfycbxlCEBaE0535hDHtcoYS0qiF3HAVTY4UymmUGJi18Nu9ZUQVvq_ZmOrqIf3VrV_6EUjeQ/exec" +
-    "?name=" + encodeURIComponent(name) +
-    "&code=" + encodeURIComponent(code) +
-    "&city=" + encodeURIComponent(city);
+    const url =
+      "https://script.google.com/macros/s/AKfycbxlCEBaE0535hDHtcoYS0qiF3HAVTY4UymmUGJi18Nu9ZUQVvq_ZmOrqIf3VrV_6EUjeQ/exec" +
+      "?name=" +
+      encodeURIComponent(name) +
+      "&code=" +
+      encodeURIComponent(code) +
+      "&city=" +
+      encodeURIComponent(city);
 
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
 
-    if (result.invalid) {
-      setError(
-        "INVALID INVITATION CODE\nPlease check your invitation code and try again."
-      );
-      return;
+      if (result.invalid) {
+        setError(
+          "INVALID INVITATION CODE\nPlease check your invitation code and try again."
+        );
+        return;
+      }
+
+      if (result.used) {
+        setError(
+          "INVITATION ALREADY USED\nThis invitation code has already been registered."
+        );
+        return;
+      }
+
+      if (result.success) {
+        setSubmitted(true);
+        return;
+      }
+
+      setError(result.message || "Something went wrong. Please try again.");
+    } catch (error) {
+      setError("Unable to submit your RSVP.\nPlease try again.");
     }
-
-    if (result.used) {
-      setError(
-        "INVITATION ALREADY USED\nThis invitation code has already been registered."
-      );
-      return;
-    }
-
-    if (result.success) {
-      setSubmitted(true);
-      return;
-    }
-
-    setError(result.message || "Something went wrong. Please try again.");
-  } catch (error) {
-    setError("Unable to submit your RSVP.\nPlease try again.");
-  }
-};
+  };
 
   return (
     <div className="page">
@@ -63,22 +66,23 @@ function App() {
           alt="MMNE Fashion Week 2026"
           className="mmne-logo"
         />
-        
-<div className="tagline">
+
+        <div className="tagline">
           <div>NORTH EAST INDIA’S BIGGEST</div>
+
           <div className="tagline-main">
             YOUTH FASHION MOVEMENT
           </div>
         </div>
 
-<div className="date-spacer"></div>
+        <div className="date-spacer"></div>
 
-<div className="event-time">
-            <strong>10th OCT 2026</strong>
-            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <strong>6 PM ONWARDS</strong>
-          </div>
-          
+        <div className="event-time">
+          <strong>10th OCT 2026</strong>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <strong>6 PM ONWARDS</strong>
+        </div>
+
         <div className="details">
           <div className="venue-block">
             <strong>VENUE</strong>
@@ -95,6 +99,7 @@ function App() {
           <form onSubmit={handleSubmit} className="rsvp-form">
 
             <label>YOUR NAME</label>
+
             <input
               type="text"
               placeholder="Enter Your Name"
@@ -102,13 +107,16 @@ function App() {
             />
 
             <label>INVITATION CODE</label>
+
             <input
               type="text"
-              placeholder="Enter Invitation Code"
+              placeholder="Enter Your Invitation Code"
+              maxLength="8"
               required
             />
 
             <label>CITY</label>
+
             <textarea
               placeholder="Enter Your City"
               rows="3"
@@ -123,7 +131,9 @@ function App() {
               </div>
             )}
 
-            <button type="submit">SUBMIT</button>
+            <button type="submit">
+              SUBMIT
+            </button>
 
           </form>
         ) : (
