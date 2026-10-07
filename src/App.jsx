@@ -39,7 +39,7 @@ function App() {
 
       if (result.used) {
         setError(
-          "INVITATION ALREADY USED\nThis invitation code has already been registered."
+          "ACCESS DENIED\nThis invitation code has already been registered."
         );
         return;
       }
