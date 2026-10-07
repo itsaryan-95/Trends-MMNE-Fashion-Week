@@ -138,7 +138,7 @@ function App() {
           </form>
         ) : (
           <div className="success">
-            <h2>WELCOME TO THE SHOW</h2>
+            
 
             <p>
               Thank you for joining us at{" "}
